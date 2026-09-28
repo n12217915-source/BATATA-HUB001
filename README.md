@@ -1,22 +1,21 @@
---// ============================================================
---// LOADER UNIVERSAL — Batata Hub (Hub + AIM + ESP)
---// ============================================================
+local ok, err = pcall(function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/n12217915-source/Batata-Hub/refs/heads/main/README.md"))()
+end)
 
-local HttpService = game:GetService("HttpService")
+print("Hub resultado:", ok, err)
 
-local URLs = {
-	Interface = "https://raw.githubusercontent.com/n12217915-source/Batata-Hub/refs/heads/main/README.md",
-	AIM = "https://raw.githubusercontent.com/n12217915-source/BATATA-CENTRAL-1/refs/heads/main/README.md",
-	ESP = "https://raw.githubusercontent.com/n12217915-source/BATATA-CENTRAL2/refs/heads/main/README.md",
-}
+task.wait(2.5)
 
--- Baixa os três
-local interfaceSrc = game:HttpGet(URLs.Interface, true)
-local aimSrc = game:HttpGet(URLs.AIM, true)
-local espSrc = game:HttpGet(URLs.ESP, true)
+local ok2, err2 = pcall(function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/n12217915-source/BATATA-CENTRAL-1/refs/heads/main/README.md"))()
+end)
 
--- Junta tudo numa string só (ordem importa!)
-local combined = interfaceSrc .. "\n\n" .. aimSrc .. "\n\n" .. espSrc
+print("AIM resultado:", ok2, err2)
 
--- Executa UMA VEZ
-loadstring(combined)()
+task.wait(2.5)
+
+local ok3, err3 = pcall(function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/n12217915-source/BATATA-CENTRAL2/refs/heads/main/README.md"))()
+end)
+
+print("ESP resultado:", ok3, err3)
